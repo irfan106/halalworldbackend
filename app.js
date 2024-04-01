@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'https://halal-world.netlify.app/',
+    origin: 'https://halal-world.netlify.app',
 }));
 
 app.use('/api-graph', graphqlHTTP({
