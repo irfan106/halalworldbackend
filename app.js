@@ -8,6 +8,7 @@ const graphQLResolvers = require('./graphql/resolvers/rootResolver');
 const cors = require('cors');
 const app = express();
 
+const PORT = process.env.PORT || 5000
 app.use(bodyParser.json());
 app.use(cors({
     origin: 'http://localhost:3000/',
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
 
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.yj6l1gi.mongodb.net/${process.env.MONGO_DB}`)
     .then(() => {
-        app.listen(5000);
+        app.listen(PORT);
         console.log("Database Connected Successfully");
     })
     .catch((err) => {
